@@ -1,5 +1,4 @@
 import { Cell, Column, HeaderCell, SortType, Table } from "rsuite-table";
-import { ResponsiveLine, Serie } from "@nivo/line";
 
 import "rsuite-table/dist/css/rsuite-table.css";
 import "rsuite/dist/rsuite.css";
@@ -29,11 +28,6 @@ interface Props {
 type RatingTable = Map<Team, number>;
 type PointsTable = Map<Team, number>;
 type Position = number;
-
-type RatingHistory = {
-  rating: number;
-  date: Date;
-}[];
 
 type Season = {
   teams: Set<Team>;
@@ -376,17 +370,17 @@ const Rating = (props: Props) => {
               autoHeight={true}
             >
               <Column width={150} sortable resizable>
-                <HeaderCell>Points Position</HeaderCell>
+                <HeaderCell>Позиция по очкам</HeaderCell>
                 <Cell dataKey="pointsPosition" />
               </Column>
 
               <Column width={150} sortable resizable>
-                <HeaderCell>Elo Position</HeaderCell>
+                <HeaderCell>Позиция по Эло</HeaderCell>
                 <Cell dataKey="eloPosition" />
               </Column>
 
               <Column width={250} sortable resizable>
-                <HeaderCell>Position Difference</HeaderCell>
+                <HeaderCell>Разность в позициях</HeaderCell>
                 <Cell dataKey="positionsDiff">
                   {(rowData) => {
                     return rowData.positionsDiff > 0
@@ -396,17 +390,17 @@ const Rating = (props: Props) => {
                 </Cell>
               </Column>
               <Column width={200} sortable fixed resizable>
-                <HeaderCell>Team</HeaderCell>
+                <HeaderCell>Команда</HeaderCell>
                 <Cell dataKey="name" />
               </Column>
 
               <Column width={100} resizable>
-                <HeaderCell>Points</HeaderCell>
+                <HeaderCell>Очки</HeaderCell>
                 <Cell dataKey="points" />
               </Column>
 
               <Column width={100} resizable>
-                <HeaderCell>Elo</HeaderCell>
+                <HeaderCell>Эло</HeaderCell>
                 <Cell dataKey="rating" />
               </Column>
             </Table>
